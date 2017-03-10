@@ -1,4 +1,6 @@
-import _ from 'underscore'
+'use strict';
+
+let _ = require('underscore');
 
 class Vector {
 
@@ -105,4 +107,4 @@ class Vector {
 
 Vector.prototype.scalar = Vector.prototype.multiply;
 
-export default Vector;
+module.exports = Vector;
