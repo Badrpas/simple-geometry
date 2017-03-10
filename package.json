@@ -2,9 +2,9 @@
   "name": "simple-geometry",
   "version": "0.0.1",
   "description": "Simple geometry",
-  "main": "dist/index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,12 @@
   "bugs": {
     "url": "https://github.com/Badrpas/simple-geometry/issues"
   },
-  "homepage": "https://github.com/Badrpas/simple-geometry#readme"
+  "homepage": "https://github.com/Badrpas/simple-geometry#readme",
+  "dependencies": {
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "mocha": "^3.2.0",
+    "unit.js": "^2.0.0"
+  }
 }
