@@ -1,0 +1,24 @@
+{
+  "name": "simple-geometry",
+  "version": "0.0.1",
+  "description": "Simple geometry",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Badrpas/simple-geometry.git"
+  },
+  "keywords": [
+    "vector",
+    "vector2d",
+    "geometry"
+  ],
+  "author": "Badrpas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Badrpas/simple-geometry/issues"
+  },
+  "homepage": "https://github.com/Badrpas/simple-geometry#readme"
+}
