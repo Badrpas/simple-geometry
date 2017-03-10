@@ -36,6 +36,14 @@ class Vector {
     return Math.sqrt(Math.pow(this.x - other.x, 2) + Math.pow(this.y - other.y, 2));
   }
 
+  squaredLength () {
+    return Math.pow(this.x, 2) + Math.pow(this.y, 2);
+  }
+
+  squaredLengthTo (other) {
+    return Math.pow(this.x - other.x, 2) + Math.pow(this.y - other.y, 2);
+  }
+
   dot (other) {
     return this.x * other.x + this.y * other.y;
   }
