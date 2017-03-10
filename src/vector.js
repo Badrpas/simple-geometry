@@ -1,7 +1,5 @@
 'use strict';
 
-let _ = require('underscore');
-
 class Vector {
 
   constructor (x, y) {
@@ -13,10 +11,10 @@ class Vector {
 
     switch (x.constructor.name) {
       case 'Vector':
-        _.extend(this, x);
+        Object.assign(this, x);
         break;
       case 'Object':
-        _.extend(this, x);
+        Object.assign(this, x);
         this.x = this.x || 0;
         this.y = this.y || 0;
         break;
@@ -95,7 +93,7 @@ class Vector {
   }
 
   equals (other) {
-    return _.isEqual(this, other);
+    return this.x === other.x && this.y === other.y;
   }
 
   equalsRound (other) {
