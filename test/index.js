@@ -82,7 +82,7 @@ describe('Vector', function () {
     let v;
 
     beforeEach(function () {
-      v = new Vector({x: 2, y: 3});
+      v = new Vector(2, 3);
     });
 
     it("length()", function() {
@@ -100,6 +100,24 @@ describe('Vector', function () {
         .number(v.lengthTo([2, 2]))
           .is(1)
         .number(v.lengthTo(2))
+          .is(1);
+    });
+
+    it("squaredLength()", function() {
+      test
+        .number(v.squaredLength())
+        .is(2*2 + 3*3);
+    });
+
+    it("squaredLengthTo()", function() {
+      test
+        .number(v.squaredLengthTo(new Vector(2, 2)))
+          .is(1)
+        .number(v.squaredLengthTo(2, 2))
+          .is(1)
+        .number(v.squaredLengthTo([2, 2]))
+          .is(1)
+        .number(v.squaredLengthTo(2))
           .is(1);
     });
   });
