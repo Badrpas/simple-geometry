@@ -50,10 +50,12 @@ class Vector {
   }
 
   squaredLengthTo (other) {
+    other = this.transformOther(...arguments);
     return Math.pow(this.x - other.x, 2) + Math.pow(this.y - other.y, 2);
   }
 
   dot (other) {
+    other = this.transformOther(...arguments);
     return this.x * other.x + this.y * other.y;
   }
 
@@ -77,15 +79,17 @@ class Vector {
   }
 
   add (other) {
+    other = this.transformOther(...arguments);
     return new Vector([this.x + other.x, this.y + other.y]);
   }
 
   sub (other) {
+    other = this.transformOther(...arguments);
     return new Vector([this.x - other.x, this.y - other.y]);
   }
 
-
   cross (other) {
+    other = this.transformOther(...arguments);
     return ((this.x * other.y) - (this.y * other.x));
   }
 
@@ -109,15 +113,24 @@ class Vector {
    * @param  {number} coef  Coefficient of how much we want to move in given direction
    * @return {Vector}       Point of interpolation
    */
-  interpolate (other, coef) {
+  interpolate (other, y, coef) {
+    let args = [...arguments];
+    if (coef === void 0) {
+      coef = y;
+      y = void 0;
+      args = args.slice(0,2);
+    }
+    other = this.transformOther(...args);
     return new Vector(this.x * (1 - coef) + other.x * coef, this.y * (1 - coef) + other.y * coef);
   }
 
   equals (other) {
+    other = this.transformOther(...arguments);
     return this.x === other.x && this.y === other.y;
   }
 
   equalsRound (other) {
+    other = this.transformOther(...arguments);
     return Math.round(this.x) === Math.round(other.x)
         && Math.round(this.y) === Math.round(other.y); // jshint ignore:line
   }
