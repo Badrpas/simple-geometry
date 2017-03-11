@@ -4,8 +4,8 @@ class Vector {
 
   constructor (x, y) {
     if (!x && x !== 0) {
-      this.x = x || 0;
-      this.y = y || 0;
+      this.x = 0;
+      this.y = 0;
       return;
     }
 
@@ -25,7 +25,15 @@ class Vector {
       default:
         this.x = x || 0;
         this.y = y || 0;
+        arguments.length === 1 && (this.y = this.x);
     }
+  }
+
+  transformOther (other) {
+    if (other && other instanceof Vector) {
+      return other;
+    }
+    return new Vector(...arguments);
   }
 
   length () {
@@ -33,6 +41,7 @@ class Vector {
   }
 
   lengthTo (other) {
+    other = this.transformOther(...arguments);
     return Math.sqrt(Math.pow(this.x - other.x, 2) + Math.pow(this.y - other.y, 2));
   }
 
@@ -90,6 +99,10 @@ class Vector {
     }
   }
 
+  scalar (k) {
+    return this.multiply(k);
+  }
+
   /**
    * From this vector in direction of given vector - interpolate by given coefficient
    * @param  {Vector} other End point in which direction we going to interpolate
@@ -106,11 +119,9 @@ class Vector {
 
   equalsRound (other) {
     return Math.round(this.x) === Math.round(other.x)
-      && Math.round(this.y) === Math.round(other.y); // jshint ignore:line
+        && Math.round(this.y) === Math.round(other.y); // jshint ignore:line
   }
 
 }
-
-Vector.prototype.scalar = Vector.prototype.multiply;
 
 module.exports = Vector;
