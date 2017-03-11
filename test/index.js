@@ -77,4 +77,30 @@ describe('Vector', function () {
       test.assert(original.interpolate(new Vector(3,2), 0.5) !== original);
     });
   });
+
+  describe("Methods", function() {
+    let v;
+
+    beforeEach(function () {
+      v = new Vector({x: 2, y: 3});
+    });
+
+    it("length()", function() {
+      test
+        .number(v.length())
+        .is(Math.sqrt(2*2 + 3*3));
+    });
+
+    it("lengthTo()", function() {
+      test
+        .number(v.lengthTo(new Vector(2, 2)))
+          .is(1)
+        .number(v.lengthTo(2, 2))
+          .is(1)
+        .number(v.lengthTo([2, 2]))
+          .is(1)
+        .number(v.lengthTo(2))
+          .is(1);
+    });
+  });
 });
